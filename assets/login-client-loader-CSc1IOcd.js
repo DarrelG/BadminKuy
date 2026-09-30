@@ -1,0 +1,1 @@
+import{t as e}from"./authController-bwdUplHi.js";async function t(){return await e.redirectIfLoggedIn(),null}export{t as clientLoader};

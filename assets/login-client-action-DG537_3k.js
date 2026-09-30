@@ -1,0 +1,1 @@
+import{E as e}from"./utils-ClvgYzxi.js";import{t}from"./authController-bwdUplHi.js";async function n({request:n}){let r=await n.formData(),i=await t.login(String(r.get(`email`)??``),String(r.get(`password`)??``));return i.error?i:e(`/`)}export{n as clientAction};

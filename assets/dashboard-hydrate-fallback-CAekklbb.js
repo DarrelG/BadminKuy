@@ -1,0 +1,1 @@
+import{c as e,t}from"./jsx-runtime-GAHkI3Qm.js";var n=t(),r=e(function(){return(0,n.jsx)(`p`,{children:`Loading...`})});export{r as HydrateFallback};
