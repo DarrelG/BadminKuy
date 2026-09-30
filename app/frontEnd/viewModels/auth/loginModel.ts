@@ -1,0 +1,1 @@
+export type LoginPageModel = { error: string | null };

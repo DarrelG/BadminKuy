@@ -1,0 +1,1 @@
+alter type public."userRole" add value if not exists 'admin';

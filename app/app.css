@@ -13,3 +13,51 @@ body {
     color-scheme: dark;
   }
 }
+
+.app-shell { font-family: "DM Sans", sans-serif; }
+
+.court-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(90deg, transparent 0, transparent 49.4%, #dff8e6 49.5%, #dff8e6 50.5%, transparent 50.6%),
+    linear-gradient(0deg, transparent 0, transparent 49.4%, #dff8e6 49.5%, #dff8e6 50.5%, transparent 50.6%);
+  background-size: 240px 240px;
+  mask-image: linear-gradient(to bottom, black, transparent 86%);
+}
+
+.orb { position: absolute; border-radius: 999px; pointer-events: none; filter: blur(1px); }
+.orb-lime { width: 28rem; height: 28rem; background: rgba(200, 242, 77, 0.13); top: -15rem; right: -10rem; }
+.orb-yellow { width: 12rem; height: 12rem; background: rgba(255, 207, 74, 0.16); bottom: -5rem; left: -4rem; }
+
+.wordmark { font-family: "Fraunces", serif; letter-spacing: -0.05em; }
+
+.welcome-card { box-shadow: 0 24px 70px rgba(1, 22, 34, 0.3); }
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  width: 9.5rem;
+  height: 9.5rem;
+  right: -4.5rem;
+  top: -4.5rem;
+  border: 20px solid rgba(200, 242, 77, 0.28);
+  border-radius: 999px;
+}
+
+.photo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 30, 45, 0.08), rgba(6, 30, 45, 0.6));
+  pointer-events: none;
+}
+
+.action-button { transition: transform 180ms ease, box-shadow 180ms ease; }
+.action-button:hover { transform: translateY(-2px); }
+.action-button:focus-visible { outline: 3px solid #ffcf4a; outline-offset: 3px; }
+
+@media (max-width: 767px) {
+  .welcome-card::before { width: 7rem; height: 7rem; right: -3rem; top: -3rem; }
+}
