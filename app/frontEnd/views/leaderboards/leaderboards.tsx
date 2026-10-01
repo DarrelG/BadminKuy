@@ -1,7 +1,7 @@
 import {
     Link, useLoaderData, type ClientLoaderFunctionArgs,
 } from "react-router";
-import { leaderboardsController } from "~/frontEnd/controllers/leaderboardsController";
+import { leaderboardsController } from "~/frontEnd/controllers/LeaderboardsController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 
 export async function clientLoader({ request }: ClientLoaderFunctionArgs) {

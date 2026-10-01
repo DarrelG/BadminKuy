@@ -1,33 +1,29 @@
-import type { Coach } from "~/backend/models/CoachModel";
+import { ApplicationHandler } from "./ApplicationHandler";
+import { CoachModel } from "~/backend/models/CoachModel";
+import { CoachViewModel } from "~/frontEnd/viewModels/CoachViewModel";
 
-// MOCK DATA: swap the method body for a Supabase query when the coaches table exists.
-const coaches: Coach[] = [
-    {
-        id: "co1",
-        name: "Coach Bima",
-        area: "Jakarta Selatan",
-        focus: "Beginner to Advanced",
-        pricePerHour: 180000,
-        rating: 4.9,
-        verified: false,
-        imageUrl: "https://images.pexels.com/photos/35647222/pexels-photo-35647222.jpeg",
-        imageAlt: "Teenage boy confidently holding a badminton racket on an indoor court.",
-    },
-    {
-        id: "co2",
-        name: "Coach Sinta",
-        area: "Kemang",
-        focus: "Doubles tactics & footwork",
-        pricePerHour: 220000,
-        rating: null,
-        verified: true,
-        imageUrl: null,
-        imageAlt: null,
-    },
-];
+class CoachHandler extends ApplicationHandler {
+    async CoachHandler(): Promise<CoachViewModel[]> {
+        try {
+            const data: CoachModel[] = await CoachModel.Run();
 
-export const coachHandler = {
-    async getAll(): Promise<Coach[]> {
-        return coaches;
-    },
-};
+            const result: CoachViewModel[] = data.map((m) => {
+                const vm = new CoachViewModel();
+                vm.name = m.name;
+                vm.description = m.description;
+                vm.pricePerHour = m.pricePerHour;
+                vm.rating = m.rating;
+                vm.isVerified = m.isVerified;
+                vm.imageUrl = m.imageUrl;
+                return vm;
+            });
+
+            return result;
+        } catch (error) {
+            console.error("[coachHandler.getAll]", error);
+            return [];
+        }
+    }
+}
+
+export const coachHandler = new CoachHandler();

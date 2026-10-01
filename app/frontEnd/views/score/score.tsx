@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useFetcher, useLoaderData, type ClientActionFunctionArgs } from "react-router";
-import { scoreController } from "~/frontEnd/controllers/scoreController";
+import { scoreController } from "~/frontEnd/controllers/ScoreController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 import { Toast } from "~/frontEnd/components/Toast";
 import { actionFail } from "~/frontEnd/utils/actionResult";
 import { formText } from "~/frontEnd/utils/form";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 export async function clientLoader() {
     return scoreController.getScorePage();

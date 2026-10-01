@@ -1,12 +1,12 @@
 import "../../styles/appShell.css";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLoaderData, useLocation, useNavigate } from "react-router";
 import {
     Badge, Bell, ChevronDown, Feather, GraduationCap, House, LogOut, MapPin,
     Medal, MessagesSquare, ShoppingBag, Trophy, UsersRound, type LucideIcon,
 } from "lucide-react";
 import { authController } from "~/frontEnd/controllers/authController";
-import { layoutController } from "~/frontEnd/controllers/layoutController";
+import { layoutController } from "~/frontEnd/controllers/LayoutController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 
 export async function clientLoader() {
@@ -50,6 +50,9 @@ export default function AppLayout() {
     const location = useLocation();
     const [notifOpen, setNotifOpen] = useState(false);
     const [notifRead, setNotifRead] = useState(false);
+    const [cityOpen, setCityOpen] = useState(false);
+    const [city, setCity] = useState(page.city);
+    const cityRef = useRef<HTMLDivElement | null>(null);
 
     const navRef = useRef<HTMLElement | null>(null);
     const [pill, setPill] = useState<Pill>({ top: 0, height: 0, visible: false });
@@ -88,6 +91,22 @@ export default function AppLayout() {
         await authController.logout();
         navigate("/login");
     };
+
+    useEffect(() => {
+        if (!cityOpen) return;
+        const onDoc = (e: MouseEvent) => {
+            if (!cityRef.current?.contains(e.target as Node)) setCityOpen(false);
+        };
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setCityOpen(false);
+        };
+        document.addEventListener("mousedown", onDoc);
+        document.addEventListener("keydown", onKey);
+        return () => {
+            document.removeEventListener("mousedown", onDoc);
+            document.removeEventListener("keydown", onKey);
+        };
+    }, [cityOpen]);
 
     return (
         <div className="bk-shell">
@@ -134,11 +153,38 @@ export default function AppLayout() {
                             <div className="md:hidden w-9 h-9 rounded-full bg-[#102a43] text-[#bcf24a] grid place-items-center">
                                 <Feather className="w-5 h-5" />
                             </div>
-                            <button className="flex items-center gap-2 outline-btn px-3 py-2 text-sm" type="button">
-                                <MapPin className="w-4 h-4 text-[#6b9424]" />
-                                <span>{page.city}</span>
-                                <ChevronDown className="w-4 h-4" />
-                            </button>
+
+                            <div ref={cityRef} className="relative">
+                                <button
+                                    type="button"
+                                    className="flex items-center gap-2 outline-btn px-3 py-2 text-sm"
+                                    aria-haspopup="listbox"
+                                    aria-expanded={cityOpen}
+                                    onClick={() => setCityOpen((o) => !o)}
+                                >
+                                    <MapPin className="w-4 h-4 text-[#6b9424]" />
+                                    <span>{city}</span>
+                                    <ChevronDown
+                                        className={`w-4 h-4 transition-transform duration-200${cityOpen ? " rotate-180" : ""}`}
+                                    />
+                                </button>
+
+                                <div className={`city-pop surface rounded-2xl overflow-hidden${cityOpen ? " open" : ""}`}>
+                                    {["Jakarta Selatan", "Jakarta Pusat", "Jakarta Barat", "Jakarta Timur", "Jakarta Utara"].map((c) => (
+                                        <button
+                                            key={c}
+                                            type="button"
+                                            onClick={() => {
+                                                setCity(c);
+                                                setCityOpen(false);
+                                            }}
+                                            className={`block w-full text-left px-4 py-3 text-sm hover:bg-[#f6faf6]${c === city ? " font-bold text-[#4f7d22]" : ""}`}
+                                        >
+                                            {c}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="flex items-center gap-3 relative">

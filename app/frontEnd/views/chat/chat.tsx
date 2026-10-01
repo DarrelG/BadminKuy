@@ -3,12 +3,12 @@ import {
     Link, useFetcher, useLoaderData, type ClientActionFunctionArgs, type ClientLoaderFunctionArgs,
 } from "react-router";
 import { Flag, Send, ShieldCheck } from "lucide-react";
-import { chatController } from "~/frontEnd/controllers/chatController";
+import { chatController } from "~/frontEnd/controllers/ChatController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 import { Toast } from "~/frontEnd/components/Toast";
 import { actionFail } from "~/frontEnd/utils/actionResult";
 import { formText } from "~/frontEnd/utils/form";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 export async function clientLoader({ request }: ClientLoaderFunctionArgs) {
     return chatController.getChatPage(new URL(request.url).searchParams.get("room"));

@@ -1,9 +1,9 @@
-import { scoreHandler } from "~/backend/handlers/scoreHandler";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { scoreHandler } from "~/backend/handlers/ScoreHandler";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { actionFail, actionOk, runAction } from "~/frontEnd/utils/actionResult";
 import { skillLabels } from "~/frontEnd/utils/labels";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
-import type { ScorePageModel } from "~/frontEnd/viewModels/scorePageModel";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
+import type { ScorePageModel } from "~/frontEnd/viewModels/ScorePageModel";
 
 const signed = (n: number): string => (n > 0 ? `+${n}` : String(n));
 

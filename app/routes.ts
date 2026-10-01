@@ -5,14 +5,14 @@ export default [
     route("register", "frontEnd/views/auth/register.tsx"),
 
     layout("frontEnd/views/layout/appLayout.tsx", [
-        index("frontEnd/views/dashboard/dashboard.tsx"),
-        route("courts", "frontEnd/views/courts/courts.tsx"),
-        route("mabar", "frontEnd/views/mabar/mabar.tsx"),
-        route("chat", "frontEnd/views/chat/chat.tsx"),
-        route("clubs", "frontEnd/views/clubs/clubs.tsx"),
-        route("score", "frontEnd/views/score/score.tsx"),
-        route("leaderboards", "frontEnd/views/leaderboards/leaderboards.tsx"),
-        route("coaches", "frontEnd/views/coaches/coaches.tsx"),
-        route("marketplace", "frontEnd/views/marketplace/marketplace.tsx"),
+        index("frontEnd/views/Home/Home.tsx"),
+        route("courts", "frontEnd/views/Courts/courts.tsx"),
+        route("mabar", "frontEnd/views/Mabar/mabar.tsx"),
+        route("chat", "frontEnd/views/Chat/chat.tsx"),
+        route("clubs", "frontEnd/views/Clubs/clubs.tsx"),
+        route("score", "frontEnd/views/Score/score.tsx"),
+        route("leaderboards", "frontEnd/views/Leaderboards/Leaderboards.tsx"),
+        route("coaches", "frontEnd/views/Coaches/Coaches.tsx"),
+        route("marketplace", "frontEnd/views/Marketplace/Marketplace.tsx"),
     ]),
 ] satisfies RouteConfig;

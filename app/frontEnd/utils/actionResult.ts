@@ -1,4 +1,4 @@
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 export const actionOk = (intent: string, message: string): ActionResult => ({
     intent,

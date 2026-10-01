@@ -1,6 +1,6 @@
 import { redirect } from "react-router";
 import { authHandler } from "~/backend/handlers/auth/authHandler";
-import { dashboardHandler } from "~/backend/handlers/dashboardHandler";
+import { dashboardHandler } from "~/backend/handlers/DashboardHandler";
 import type { AuthUser, Profile } from "~/backend/models/UserModel";
 
 // Every page controller starts with one of these, so guests are sent to /login

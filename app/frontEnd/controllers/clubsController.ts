@@ -1,8 +1,8 @@
-import { clubHandler } from "~/backend/handlers/clubHandler";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { clubHandler } from "~/backend/handlers/ClubHandler";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { actionFail, actionOk, runAction } from "~/frontEnd/utils/actionResult";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
-import type { ClubsPageModel } from "~/frontEnd/viewModels/clubsPageModel";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
+import type { ClubsPageModel } from "~/frontEnd/viewModels/ClubsPageModel";
 
 export const clubsController = {
     async getClubsPage(): Promise<ClubsPageModel> {

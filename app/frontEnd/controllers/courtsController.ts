@@ -1,14 +1,14 @@
-import { courtHandler } from "~/backend/handlers/courtHandler";
+import { courtHandler } from "~/backend/handlers/CourtHandler";
 import type { Court, CourtFilter, FloorType } from "~/backend/models/CourtModel";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { actionFail, actionOk, runAction } from "~/frontEnd/utils/actionResult";
 import { formatPriceK } from "~/frontEnd/utils/format";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 import type {
     CourtCardModel,
     CourtDetailModel,
     CourtsPageModel,
-} from "~/frontEnd/viewModels/courtsPageModel";
+} from "~/frontEnd/viewModels/CourtsPageModel";
 
 const floors: FloorType[] = ["Wood", "Vinyl", "Rubber"];
 

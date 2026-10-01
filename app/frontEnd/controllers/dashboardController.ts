@@ -1,9 +1,9 @@
-import { courtHandler } from "~/backend/handlers/courtHandler";
-import { mabarHandler } from "~/backend/handlers/mabarHandler";
-import { statsHandler } from "~/backend/handlers/statsHandler";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { courtHandler } from "~/backend/handlers/CourtHandler";
+import { mabarHandler } from "~/backend/handlers/MabarHandler";
+import { statsHandler } from "~/backend/handlers/StatsHandler";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { formatClock, formatDay, formatPriceK } from "~/frontEnd/utils/format";
-import type { dashboardModel } from "~/frontEnd/viewModels/dashboardModel";
+import type { dashboardModel } from "~/frontEnd/viewModels/DashboardModel";
 
 export const dashboardController = {
     async getDashboardPage(): Promise<dashboardModel> {

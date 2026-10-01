@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import { marketplaceController } from "~/frontEnd/controllers/marketplaceController";
+import { marketplaceController } from "~/frontEnd/controllers/MarketplaceController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 
 export async function clientLoader() {

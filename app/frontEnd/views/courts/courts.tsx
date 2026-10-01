@@ -4,14 +4,14 @@ import {
     type ClientActionFunctionArgs, type ClientLoaderFunctionArgs,
 } from "react-router";
 import { BadgeCheck, Map, MessageCircle, Search, X } from "lucide-react";
-import { courtsController } from "~/frontEnd/controllers/courtsController";
+import { courtsController } from "~/frontEnd/controllers/CourtsController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 import { PageHeader } from "~/frontEnd/components/PageHeader";
 import { Toast } from "~/frontEnd/components/Toast";
 import { actionFail } from "~/frontEnd/utils/actionResult";
 import { formText } from "~/frontEnd/utils/form";
 import { todayInputValue } from "~/frontEnd/utils/format";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 export async function clientLoader({ request }: ClientLoaderFunctionArgs) {
     return courtsController.getCourtsPage(new URL(request.url).searchParams);

@@ -1,9 +1,9 @@
-import { chatHandler } from "~/backend/handlers/chatHandler";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { chatHandler } from "~/backend/handlers/ChatHandler";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { actionFail, actionOk, runAction } from "~/frontEnd/utils/actionResult";
 import { formatClock } from "~/frontEnd/utils/format";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
-import type { ChatPageModel } from "~/frontEnd/viewModels/chatPageModel";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
+import type { ChatPageModel } from "~/frontEnd/viewModels/ChatPageModel";
 
 export const chatController = {
     async getChatPage(roomParam: string | null): Promise<ChatPageModel> {

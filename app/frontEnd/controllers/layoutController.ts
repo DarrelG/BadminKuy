@@ -1,8 +1,8 @@
-import { notificationHandler } from "~/backend/handlers/notificationHandler";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { notificationHandler } from "~/backend/handlers/NotificationHandler";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { initialsOf } from "~/frontEnd/utils/format";
 import { skillLabels } from "~/frontEnd/utils/labels";
-import type { LayoutPageModel } from "~/frontEnd/viewModels/layoutPageModel";
+import type { LayoutPageModel } from "~/frontEnd/viewModels/LayoutPageModel";
 
 export const layoutController = {
     async getLayoutPage(): Promise<LayoutPageModel> {

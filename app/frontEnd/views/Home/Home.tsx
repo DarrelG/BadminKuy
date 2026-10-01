@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router";
 import { Activity, BadgeCheck, CalendarDays } from "lucide-react";
-import { dashboardController } from "~/frontEnd/controllers/dashboardController";
+import { dashboardController } from "~/frontEnd/controllers/DashboardController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 
 export async function clientLoader() {

@@ -29,6 +29,27 @@
     .notification-pop { display:none; position:absolute; right:0; top:56px; width:320px; z-index:50; }
     .notification-pop.open { display:block; animation:rise .2s ease; }
     @keyframes rise { from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)} }
+    
+    .city-pop {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        min-width: 200px;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+        transform-origin: top left;
+        pointer-events: none;
+        transition:
+            opacity .18s ease,
+            transform .22s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .city-pop.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
 
     .nav-list {
         position: relative;
@@ -99,5 +120,7 @@
         .notification-pop.open { animation:none; }
         
         .nav-pill { transition: opacity .1s ease; }
+        .city-pop { transition: opacity .1s ease; transform: none; }
+        .city-pop.open { transform: none; }
     }
 }

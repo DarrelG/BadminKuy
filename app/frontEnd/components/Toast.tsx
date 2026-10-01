@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 // Shows the message of the latest action result for a moment, then hides it
 export function Toast({ result }: { result?: ActionResult | null }) {

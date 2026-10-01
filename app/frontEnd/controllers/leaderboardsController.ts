@@ -1,8 +1,8 @@
-import { scoreHandler } from "~/backend/handlers/scoreHandler";
+import { scoreHandler } from "~/backend/handlers/ScoreHandler";
 import type { LeaderboardScope } from "~/backend/models/ScoreModel";
-import { sessionController } from "~/frontEnd/controllers/sessionController";
+import { sessionController } from "~/frontEnd/controllers/SessionController";
 import { initialsOf } from "~/frontEnd/utils/format";
-import type { LeaderboardsPageModel } from "~/frontEnd/viewModels/leaderboardsPageModel";
+import type { LeaderboardsPageModel } from "~/frontEnd/viewModels/LeaderboardsPageModel";
 
 const scopes: LeaderboardScope[] = ["jakarta", "club", "month"];
 

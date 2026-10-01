@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useFetcher, useLoaderData, type ClientActionFunctionArgs } from "react-router";
 import { X } from "lucide-react";
-import { mabarController } from "~/frontEnd/controllers/mabarController";
+import { mabarController } from "~/frontEnd/controllers/MabarController";
 import { LoadingState } from "~/frontEnd/components/LoadingState";
 import { PageHeader } from "~/frontEnd/components/PageHeader";
 import { Toast } from "~/frontEnd/components/Toast";
@@ -9,7 +9,7 @@ import { actionFail } from "~/frontEnd/utils/actionResult";
 import { formText } from "~/frontEnd/utils/form";
 import { todayInputValue } from "~/frontEnd/utils/format";
 import type { SkillLevel } from "~/backend/models/UserModel";
-import type { ActionResult } from "~/frontEnd/viewModels/actionResult";
+import type { ActionResult } from "~/frontEnd/viewModels/ActionResult";
 
 export async function clientLoader() {
     return mabarController.getMabarPage();
