@@ -1,0 +1,1 @@
+import{t as e}from"./courtsController-CXPKzHI9.js";async function t({request:t}){return e.getCourtsPage(new URL(t.url).searchParams)}export{t as clientLoader};

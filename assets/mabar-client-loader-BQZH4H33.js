@@ -1,0 +1,1 @@
+import{t as e}from"./mabarController-CXqfEDRA.js";async function t(){return e.getMabarPage()}export{t as clientLoader};

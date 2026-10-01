@@ -1,0 +1,1 @@
+import{t as e}from"./actionResult-FDvc3Jz7.js";import{t}from"./form-C-clk_dx.js";import{t as n}from"./chatController-CG1vlAoT.js";async function r({request:r}){let i=await r.formData(),a=t(i,`intent`),o=t(i,`room`);return a===`send`?n.sendMessage(o,t(i,`text`)):a===`report`?n.reportRoom(o):e(a,`Unknown action.`)}export{r as clientAction};

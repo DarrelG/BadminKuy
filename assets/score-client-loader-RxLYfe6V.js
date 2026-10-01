@@ -1,0 +1,1 @@
+import{t as e}from"./scoreController-CrVuKKON.js";async function t(){return e.getScorePage()}export{t as clientLoader};

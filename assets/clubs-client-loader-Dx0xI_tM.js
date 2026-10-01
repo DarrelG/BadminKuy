@@ -1,0 +1,1 @@
+import{t as e}from"./clubsController-BeFhXHgC.js";async function t(){return e.getClubsPage()}export{t as clientLoader};

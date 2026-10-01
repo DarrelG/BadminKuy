@@ -1,0 +1,1 @@
+import{t as e}from"./chatController-CG1vlAoT.js";async function t({request:t}){return e.getChatPage(new URL(t.url).searchParams.get(`room`))}export{t as clientLoader};

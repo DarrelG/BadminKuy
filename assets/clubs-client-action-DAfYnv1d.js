@@ -1,0 +1,1 @@
+import{t as e}from"./actionResult-FDvc3Jz7.js";import{t}from"./form-C-clk_dx.js";import{t as n}from"./clubsController-BeFhXHgC.js";async function r({request:r}){let i=await r.formData(),a=t(i,`intent`);return a===`join`?n.joinClub(t(i,`clubId`)):e(a,`Unknown action.`)}export{r as clientAction};

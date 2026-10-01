@@ -1,0 +1,1 @@
+var e=(e,t)=>String(e.get(t)??``).trim();export{e as t};

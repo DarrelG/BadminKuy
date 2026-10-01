@@ -1,0 +1,1 @@
+var e={beginner:`Beginner`,intermediate:`Intermediate`,advanced:`Advanced`},t=e=>e===`beginner`||e===`intermediate`||e===`advanced`;export{e as n,t};

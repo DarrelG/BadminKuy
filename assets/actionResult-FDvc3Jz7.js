@@ -1,0 +1,1 @@
+var e=(e,t)=>({intent:e,ok:!0,message:t}),t=(e,t)=>({intent:e,ok:!1,message:t}),n=async(e,n)=>{try{return await n()}catch(n){if(n instanceof Response)throw n;return t(e,`Something went wrong. Please try again.`)}};export{e as n,n as r,t};

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-D7XZf4T7.js";var t=e();function n(){return(0,t.jsx)(`p`,{className:`p-8 text-sm text-[#69808f]`,children:`Loading...`})}export{n as t};

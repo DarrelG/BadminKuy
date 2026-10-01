@@ -1,0 +1,1 @@
+import{c as e,t}from"./jsx-runtime-D7XZf4T7.js";import{t as n}from"./LoadingState-CyAW1wCf.js";var r=t(),i=e(function(){return(0,r.jsx)(n,{})});export{i as HydrateFallback};
