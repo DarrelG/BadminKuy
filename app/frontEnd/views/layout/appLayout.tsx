@@ -1,6 +1,6 @@
 import "../../styles/appShell.css";
-import { useState } from "react";
-import { NavLink, Outlet, useLoaderData, useNavigate } from "react-router";
+import { useLayoutEffect, useRef, useState } from "react";
+import { NavLink, Outlet, useLoaderData, useLocation, useNavigate } from "react-router";
 import {
     Badge, Bell, ChevronDown, Feather, GraduationCap, House, LogOut, MapPin,
     Medal, MessagesSquare, ShoppingBag, Trophy, UsersRound, type LucideIcon,
@@ -42,11 +42,47 @@ const MOBILE_NAV: NavItem[] = [
 const navClass = ({ isActive }: { isActive: boolean }) => `nav-item${isActive ? " active" : ""}`;
 const mobileClass = ({ isActive }: { isActive: boolean }) => (isActive ? "active" : "");
 
+type Pill = { top: number; height: number; visible: boolean };
+
 export default function AppLayout() {
     const page = useLoaderData<typeof clientLoader>();
     const navigate = useNavigate();
+    const location = useLocation();
     const [notifOpen, setNotifOpen] = useState(false);
     const [notifRead, setNotifRead] = useState(false);
+
+    const navRef = useRef<HTMLElement | null>(null);
+    const [pill, setPill] = useState<Pill>({ top: 0, height: 0, visible: false });
+
+    useLayoutEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
+
+        const measure = () => {
+            const active = nav.querySelector<HTMLElement>(".nav-item.active");
+            if (!active) {
+                setPill((p) => ({ ...p, visible: false }));
+                return;
+            }
+            setPill({
+                top: active.offsetTop,
+                height: active.offsetHeight,
+                visible: true,
+            });
+        };
+
+        measure();
+
+        const ro = new ResizeObserver(measure);
+        ro.observe(nav);
+        window.addEventListener("resize", measure);
+        if (document.fonts?.ready) document.fonts.ready.then(measure);
+
+        return () => {
+            ro.disconnect();
+            window.removeEventListener("resize", measure);
+        };
+    }, [location.pathname]);
 
     const handleLogout = async () => {
         await authController.logout();
@@ -65,7 +101,16 @@ export default function AppLayout() {
                     </div>
                     <p className="text-xs mt-2 text-[#a9c4b9]">Your local badminton circle</p>
                 </div>
-                <nav className="space-y-1">
+
+                <nav ref={navRef} className="nav-list space-y-1">
+                    <span
+                        className={`nav-pill${pill.visible ? " is-visible" : ""}`}
+                        style={{
+                            transform: `translateY(${pill.top}px)`,
+                            height: pill.height,
+                        }}
+                        aria-hidden="true"
+                    />
                     {NAV_ITEMS.map(({ to, label, Icon }) => (
                         <NavLink key={to} to={to} end={to === "/"} className={navClass}>
                             <Icon className="w-4 h-4" />
@@ -73,6 +118,7 @@ export default function AppLayout() {
                         </NavLink>
                     ))}
                 </nav>
+
                 <div className="absolute bottom-6 left-4 right-4 rounded-2xl bg-[#193952] p-4">
                     <p className="text-[11px] font-bold text-[#bcf24a]">PLAY FAIR. PLAY MORE.</p>
                     <p className="text-xs leading-5 mt-1 text-[#c8d8d3]">
